@@ -1,0 +1,23 @@
+<div *ngIf="students" >
+  <div style="display: flex; justify-content: space-between;">
+  <h2>Students</h2>
+  <button  (click)="openAddStudentDialog()">Add Strudent</button>
+</div>
+
+  <!-- Student list -->
+  <div *ngIf="students.length > 0; else noResults" >
+    <div *ngFor="let student of students"
+      class="student-card  marginleft">
+      <div>
+        <p>ID: {{ student.id }}</p>
+        <p>Name: {{ student.name }}</p>
+        <p>Date added: {{ student.createdAt | date: 'medium' : 'UTC' }}</p>
+        <p>Email: {{ student.email }}</p>
+        <button routerLink="/student"  [queryParams]="{ id: student.id }" >View</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noResults>
+    <p  class=" marginleft">No students found.</p>
+  </ng-template>
+</div>

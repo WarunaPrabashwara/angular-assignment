@@ -1,0 +1,53 @@
+<div *ngIf="student">
+  <h2>Student Details</h2>
+  <div class="student_info marginleft">
+    <p><strong>ID:</strong> {{ student.id }}</p>
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+  </div>
+  <h3>Courses of student</h3>
+
+  <div class="alignright">
+    <div class="row">
+      <div class="sort-container">
+        <select id="courseDropdown" [(ngModel)]="selectedCourse_id" class="sort-select">
+          <option value="undefined">Add a Course</option>
+          <option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</option>
+        </select>
+      </div>
+      <div>
+        <button (click)="enrollStudent( student.id)">Enroll</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="student.courses.length > 0; else noResults">
+    <div class="student-card marginleft" *ngFor="let course of student.courses">
+
+      <p><strong>Title:</strong> {{ course.course.title }}</p>
+      <div class="student_info">
+        <p><strong>ID:</strong> {{ course.course.id }}</p>
+        <p><strong>Progress:</strong> {{ course.progress }}</p>
+        <p><strong>Status:</strong> <span *ngIf="course.status === 2; else unenrolled"> Enrolled</span>
+          <ng-template #unenrolled> Unenrolled</ng-template>
+        </p>
+      </div>
+
+      <!-- Button to unenroll student -->
+      <div class="alignright">
+        <span *ngIf="course.status === 2; else unenrolledd">
+          <button (click)="unenrollStudent( course.id , course.course.id , student.id)">Unenroll</button>
+        </span>
+        <ng-template #unenrolledd> </ng-template>
+      </div>
+
+
+      <!-- Add other course details as needed -->
+    </div>
+  </div>
+  <ng-template #noResults>
+    <p class=" marginleft">No courses found.</p>
+  </ng-template>
+
+</div>

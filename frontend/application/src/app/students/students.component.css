@@ -1,0 +1,21 @@
+.student-card {
+  background-color: #f8f9fa; /* Default background color */
+  border: 1px solid #dee2e6; /* Default border color */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 10px; /* Padding around the card content */
+  margin-bottom: 10px; /* Spacing between cards */
+}
+
+.marginleft {
+  margin-left:20px;
+}
+
+button {
+  padding: 4.5px ;
+  margin : 2px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
