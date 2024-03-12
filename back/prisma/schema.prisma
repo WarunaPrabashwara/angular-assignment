@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ulevel 1 for admin 2 for instructor 3 for student
+model users {
+  id                  Int        @id @default(autoincrement())
+  createdAt           DateTime   @default(now())
+  ulevel              Int
+  name                String
+  email               String
+  pswd                String
+}
+
+model courses {
+  id                  Int        @id @default(autoincrement())
+  createdAt           DateTime   @default(now())
+  title               String      @unique 
+  description         String      @db.VarChar(512)
+  category            String
+  is_active           Boolean     @default( true)
+  instructor_id       Int
+  rating              Float
+  link_for_img        String      @db.VarChar(64)
+  price               Int         
+}
+
+
+// status 1 for disabled[ may be selected initially and later not interested ], 2 for active 3 for completed
+model course_studnts {
+    id                  Int        @id @default(autoincrement())
+    createdAt           DateTime   @default(now())
+    id_of_stud          Int
+    id_of_course        Int
+    status              Int
+    progress            Float
+}
