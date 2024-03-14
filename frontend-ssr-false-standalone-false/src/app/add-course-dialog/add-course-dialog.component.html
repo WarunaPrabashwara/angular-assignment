@@ -1,0 +1,42 @@
+<div class="popup-container" style="padding: 10px;">
+  <h2 mat-dialog-title>Add Course</h2>
+  <div mat-dialog-content>
+
+    <form (ngSubmit)="onSubmit()" #courseForm="ngForm" enctype="multipart/form-data" class="form-container">
+
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" [(ngModel)]="course.title" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="course.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" [(ngModel)]="course.category" required>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="course.price" required>
+      </div>
+      <div class="form-group">
+        <label for="instructor_id">Instructor:</label>
+        <select id="instructor_id" name="instructor_id" [(ngModel)]="course.instructor_id" required>
+          <option *ngFor="let instructor of instructors" [value]="instructor.id">{{ instructor.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="file">Image:</label>
+        <input type="file" id="file" name="file" (change)="onFileChange($event)" required>
+      </div>
+
+    </form>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button (click)="onSubmit()">Submit</button>
+  </div>
+
+</div>

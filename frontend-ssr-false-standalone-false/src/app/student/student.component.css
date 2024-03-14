@@ -1,0 +1,49 @@
+.student_info {
+  display:flex;
+  justify-content: space-between;
+}
+
+.alignright {
+  display:flex;
+  justify-content : right;
+}
+
+.student-card {
+  background-color: #f8f9fa; /* Default background color */
+  border: 1px solid #dee2e6; /* Default border color */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 10px; /* Padding around the card content */
+  margin-bottom: 10px; /* Spacing between cards */
+}
+
+
+.sort-container {
+  margin-bottom:10px;
+
+}
+
+.sort-select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.row {
+  display:flex;
+  flex-direction:row;
+}
+
+button {
+  padding: 4.5px ;
+  margin : 2px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.marginleft {
+  margin-left:20px;
+}

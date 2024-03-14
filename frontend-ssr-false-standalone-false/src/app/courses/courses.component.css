@@ -1,0 +1,69 @@
+/* Add this CSS to your styles.css or component-specific CSS file */
+
+.course-card {
+  background-color: #f8f9fa; /* Default background color */
+  border: 1px solid #dee2e6; /* Default border color */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 10px; /* Padding around the card content */
+  margin-bottom: 10px; /* Spacing between cards */
+}
+
+.course-card.active {
+  background-color: #c3e6cb; /* Custom background color for active courses */
+  border-color: #b1dfbb; /* Custom border color for active courses */
+}
+
+.course-card.inactive {
+  background-color: #f5c6cb; /* Custom background color for inactive courses */
+  border-color: #f0b6c5; /* Custom border color for inactive courses */
+}
+
+.search-input {
+  width: 300px;
+  height: 7px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sort-container {
+
+}
+
+.sort-label {
+  font-weight: bold;
+}
+
+.sort-select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-n-sort {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+
+}
+
+.marginleft {
+  margin-left:20px;
+}
+
+.col {
+  display:flex;
+  flex-direction: row;
+}
+
+
+button {
+  padding: 4.5px ;
+  margin : 2px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}

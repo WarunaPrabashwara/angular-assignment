@@ -1,0 +1,48 @@
+<div *ngIf="courses">
+  <div style="display: flex; justify-content: space-between;">
+    <h2>Courses</h2>
+    <button  (click)="openAddCourseDialog()">Add Course</button>
+  </div>
+
+  <div class="search-n-sort marginleft">
+    <!-- Search bar -->
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name, category, or instructor"
+      (input)="filterCourses()" class="search-input">
+
+    <div class="sort-container">
+      <select [(ngModel)]="sortBy" (change)="sortCourses()" class="sort-select">
+        <option value="">Sort By</option>
+        <option value="price">Price</option>
+        <option value="rating">Rating</option>
+        <option value="category">Category</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Course list -->
+  <div *ngIf="filteredCourses.length > 0; else noResults">
+    <div class="marginleft" *ngFor="let course of filteredCourses"
+      [ngClass]="{ 'course-card': true, 'active': course.is_active, 'inactive': !course.is_active }">
+      <div class="col">
+        <div style="margin:10px">
+          <img *ngIf="course.link_for_img" style="width: 150px; height: auto;" [src]="getFullImageUrl(course.link_for_img)" alt="Course Image">
+          <p>Category: {{ course.category }}</p>
+          <p>Is Active: {{ course.is_active }}</p>
+          <p>Instructor Name: {{ course.instructor.name }}</p>
+          <p>Instructor Email: {{ course.instructor.email }}</p>
+        </div>
+
+        <div style="margin:10px">
+          <p>Title: {{ course.title }}</p>
+          <p>Price: {{ course.price }}</p>
+          <p>Description: {{ course.description }}</p>
+          <p>Rating: {{ course.rating }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <ng-template #noResults>
+    <p class=" marginleft">No courses found.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,28 @@
+<div class="popup-container" style="padding: 10px;">
+  <h2 mat-dialog-title>Add Student</h2>
+  <div mat-dialog-content>
+
+    <form (ngSubmit)="onSubmit()" #courseForm="ngForm" enctype="multipart/form-data" class="form-container">
+
+      <div class="form-group">
+        <label for="name" >Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="student.name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="student.email" required>
+      </div>
+      <div class="form-group">
+        <label for="pswd">Password:</label>
+        <input type="text" id="pswd" name="pswd" [(ngModel)]="student.pswd" required>
+      </div>
+
+    </form>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button (click)="onSubmit()">Submit</button>
+  </div>
+
+  </div>
