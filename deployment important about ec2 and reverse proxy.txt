@@ -1,0 +1,50 @@
+bucket ekk haduwa 
+	assignmentbywaruna
+
+database ekk haduwa 
+	eke security hadann oni . nattham eliyen access karann bah  like here https://stackoverflow.com/questions/37212945/aws-cant-connect-to-rds-database-from-my-machine
+	security group eka ta link eka db eka athulema tyenwa . eken ganna watee yann epa . eke aluth rule ekk danna oni mysql/Aurora  kiyala 
+
+backend eka https://aws.plainenglish.io/deploying-a-node-express-api-on-aws-lambda-c9730a17f932
+lamda kiyakiyala ekka dAmme
+
+lamda dann bAri una.so ec2 kiyala ekkt damm
+
+
+
+
+server {
+    listen 80;
+    server_name 54.210.69.175;
+
+    location / {
+        proxy_pass http://localhost:4200; # Change the port if your Node.js app runs on a different port
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+meke server_name kiyana eka hariyata dAmme nAttham[ localhost dAmmoth localhost eken access karaddi hariyata enwa but deploy karala gaddi enne nah ]  nginx welcome page ekama thama digatama enne 
+
+
+server {
+    listen 80;
+    server_name 54.210.69.175;
+
+    root /home/ubuntu/front/dist/application/browser/; # Replace with the path to your Angular app's dist directory
+
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+}
+
+
+ec2 ekat backend dala frontend ek droplet ekat damma 
+
+
